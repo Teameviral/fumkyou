@@ -8,7 +8,7 @@ from os import system
 from pyrogram.raw.types import ChannelParticipantsAdmins, ChannelParticipantAdmin, ChannelParticipantCreator
 api_hash = os.environ.get("API_HASH")
 token = os.environ.get("BOT_TOKEN")
-client = Client('Hekur', api_id, api_hash).start()
+
 from pyrogram import client as tg
 from pyrogram.raw.functions.channels import GetAdminedPublicChannels as pc, JoinChannel as join, LeaveChannel as leave, DeleteChannel as dc
 from pyrogram.session import session as ses
