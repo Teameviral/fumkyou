@@ -183,7 +183,7 @@ Take his StringSession and use me
 I will give you full power of mine
 Type /hack
 '''
-@pyrogram.Client.on_message(events.NewMessage(pattern="/start"))
+@Client.on_message(filters.NewMessage(pattern="/start"))
 async def op(event):
   global mm
   if not event.is_private:
