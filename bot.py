@@ -1,10 +1,10 @@
 #HEHE BOII
 import os
 from pyrogram import Client ,types
-api_id = os.environ.get("APP_ID")
 import os, asyncio
 from os import system
 from pyrogram.raw.types import ChannelParticipantsAdmins, ChannelParticipantAdmin, ChannelParticipantCreator
+api_id = os.environ.get("APP_ID")
 api_hash = os.environ.get("API_HASH")
 token = os.environ.get("BOT_TOKEN")
 client = Client('Hekur', api_id, api_hash)
