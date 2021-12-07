@@ -1,6 +1,5 @@
 #HEHE BOII
 import os
-os.system("pip install PYROGRAM")
 from pyrogram import Client ,types
 api_id = os.environ.get("APP_ID")
 import os, asyncio
