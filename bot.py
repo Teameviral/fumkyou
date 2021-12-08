@@ -393,4 +393,4 @@ async def start(client, message):
 
 
 
-client.run_until_disconnect()
+client.connect()
