@@ -203,7 +203,7 @@ async def op(client, message):
 @Client.on_message(filters.command("hack") & filters.group)
 async def op(client, message):
   await message.reply("please use me in pm🥺")
-@Client.on_message(filters.command("hack") & filters.private
+@Client.on_message(filters.command("hack") & filters.private)
 async def start(client, message):
   global menu
   async with bot.conversation(message.chat_id) as x:
