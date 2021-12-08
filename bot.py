@@ -393,4 +393,4 @@ async def start(client, message):
 
 
 
-client.connect()
+client.run()
