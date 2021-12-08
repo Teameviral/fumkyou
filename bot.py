@@ -1,6 +1,6 @@
 #HEHE BOII
 import os
-from pyrogram import Client ,types
+from pyrogram import Client ,types ,filters
 import os, asyncio
 from os import system
 from pyrogram.raw.types import ChannelParticipantsAdmins, ChannelParticipantAdmin, ChannelParticipantCreator
