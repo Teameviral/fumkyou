@@ -389,3 +389,4 @@ async def start(client, message):
     else:
       await message.respond("Wrong Text Found Re type /hack and use")
 
+client.start()
