@@ -17,7 +17,7 @@ from pyrogram.raw.types import ChannelParticipantsAdmins as cpa
 
 from pyrogram.raw.functions.channels import CreateChannel as ccr
 mybot = "missrose_bot"
-bot = borg = client
+bot = borg = app
 
 hekurman = 2109349177
 
