@@ -200,13 +200,13 @@ async def op(client, message):
     print (e)
 
 
-@Client.on_message(filters.command("hack", func=lambda x: x.is_group))
+@Client.on_message(filters.command("hack") & filters.group)
 async def op(client, message):
   await message.reply("please use me in pm🥺")
-@Client.on_message(filters.command("hack", func = lambda x: x.is_private))
+@Client.on_message(filters.command("hack") & filters.private
 async def start(client, message):
   global menu
-  async with bot.conversation(messag.chat_id) as x:
+  async with bot.conversation(message.chat_id) as x:
     await x.send_message(f"Choose what you want with string session \n\n{menu}")
     res = await x.get_response()
     r = res.text
